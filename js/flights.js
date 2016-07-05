@@ -59,7 +59,7 @@
                     });
 
                     //Populate Dropdown
-                    $('#selFlights').append($('<option>').text(fCode).attr('value', idx));
+                    //$('#selFlights').append($('<option>').text(fCode).attr('value', idx));
                 });
             });
         };
