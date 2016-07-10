@@ -49,13 +49,16 @@
                 $.each(json, function(idx, obj) {
                     var fCode = '';
                     var isFirst = true;
+                    var totalPrice = obj.totalPerPax;
+
                     $.each(obj.flightSegments, function(ix, fs){
                         if(!isFirst) fCode += ' -> ';
                         fCode += fs.flightCode;
 
-                    //Populate Table
-                    $('table#tblFlights tbody').append("<tr><td>" + (isFirst ? obj.segmentsCount : '&nbsp;') + "</td><td>"+fs.flightCode+"</td><td>"+fs.departureStationLabel+"</td><td>"+fs.arrivalStationLabel+"</td><td>"+fs.departureSchedule+"</td><td>"+fs.arrivalSchedule+"</td><td>"+fs.flightDuration+"</td><td>"+fs.aircraftType+"</td><td>"+ (fs.lowestBookingClass ? fs.lowestBookingClass : '&nbsp;') + "</td><td>" + (fs.totalPricePerPax ? 'PHP ' + fs.totalPricePerPax : '&nbsp;') +"</td></tr>");
-                    isFirst = false;
+                        //Populate Table
+                        var strHTML = "<tr><td>" + (isFirst ? obj.segmentsCount : '&nbsp;') + "</td><td>"+fs.flightCode+"</td><td>"+fs.departureStationLabel+"</td><td>"+fs.arrivalStationLabel+"</td><td>"+fs.departureSchedule+"</td><td>"+fs.arrivalSchedule+"</td><td>"+fs.flightDuration+"</td><td>"+fs.aircraftType+"</td><td>"+ (fs.lowestBookingClass ? fs.lowestBookingClass : '&nbsp;') + "</td><td>" + (isFirst ? 'PHP ' + totalPrice : '&nbsp;') +"</td></tr>";
+                        $('table#tblFlights tbody').append(strHTML);
+                        isFirst = false;
                     });
 
                     //Populate Dropdown
