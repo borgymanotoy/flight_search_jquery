@@ -36,8 +36,8 @@
         };
 
         var searchFlights = function(origin, destination, departureDate, hasPR, has5J, hasPQ){
-            //var url = 'http://52.76.217.169:8080/UniversalTicketing/searchOneWayFlights?origin=' + origin + '&destination=' + destination + '&departureDate=' + departureDate;
-            var url = 'http://121.96.242.61:8088/UniversalTicketing/searchOneWayFlights?origin=' + origin + '&destination=' + destination + '&departureDate=' + departureDate;
+            //var url = 'http://52.76.217.169:8080/booking/api/searchOneWayFlights?origin=' + origin + '&destination=' + destination + '&departureDate=' + departureDate;
+            var url = 'http://dev.biyahe.com.ph/booking/api/searchOneWayFlights?origin=' + origin + '&destination=' + destination + '&departureDate=' + departureDate;
             if(hasPR) url += "&hasPR=true";
             if(has5J) url += "&has5J=true";
             if(hasPQ) url += "&hasPQ=true";
